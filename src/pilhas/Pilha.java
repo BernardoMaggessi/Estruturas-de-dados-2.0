@@ -13,17 +13,17 @@ public class Pilha {
 	}
 	
 	//VERIFICA SE A PILHA ESTÁ CHEIA
-	public boolean isFull() {
+	public boolean PilhaCheia() {
 		return topo == capacidade-1;
 	}
 	
 	//VERIFICA SE A PILHA ESTÁ VAZIA
-	public boolean isEmpty() {
+	public boolean PilhaVazia() {
 		return topo == -1;
 	}
 	//INSERE ITEM NA PILHA
-	public void push(int valor) {
-		if(isFull()) {
+	public void Empilhar(int valor) {
+		if(PilhaCheia()) {
 			System.out.println("Pilha já se encontra cheia");
 		}else {
 			pilha[++topo] = valor;
@@ -31,8 +31,8 @@ public class Pilha {
 		}
 	}
 	 // Remove o item do topo da pilha
-    public int pop() {
-        if (isEmpty()) {
+    public int Desempilhar() {
+        if (PilhaVazia()) {
             System.out.println("Pilha vazia!");
             return -1; // Retorna um valor de erro
         } else {
@@ -41,8 +41,8 @@ public class Pilha {
     }
 
     // Verifica o item do topo sem removê-lo
-    public int peek() {
-        if (isEmpty()) {
+    public int ElementoTopo() {
+    	if (PilhaVazia()) {
             System.out.println("Pilha vazia!");
             return -1; // Retorna um valor de erro
         } else {
@@ -51,13 +51,13 @@ public class Pilha {
     }
 
     // Retorna o tamanho da pilha
-    public int size() {
+    public int Tamanho() {
         return topo + 1;
     }
 
     // Exibe os elementos da pilha
-    public void display() {
-        if (isEmpty()) {
+    public void Mostrar() {
+    	if (PilhaVazia()) {
             System.out.println("Pilha vazia!");
         } else {
             System.out.print("Pilha: ");
@@ -71,18 +71,17 @@ public class Pilha {
     public static void main(String[] args) {
         Pilha pilha = new Pilha(5); // Cria uma pilha com capacidade 5
         
-        pilha.push(10);
-        pilha.push(20);
-        pilha.push(30);
-
-        pilha.display(); // Exibe a pilha: 10 20 30
-
-        System.out.println("Topo da pilha: " + pilha.peek());
-
-        pilha.pop();
-        pilha.display(); // Exibe a pilha: 10 20
-
-        System.out.println("Tamanho da pilha: " + pilha.size());
+        pilha.ElementoTopo();
+        pilha.Empilhar(5);
+        pilha.Empilhar(8);
+        pilha.Empilhar(4);
+        pilha.Empilhar(7);
+        pilha.Mostrar();
+        pilha.Desempilhar();
+        pilha.Desempilhar();
+        pilha.ElementoTopo();
+        pilha.Desempilhar();
+        pilha.Desempilhar();
     }
 }
 
